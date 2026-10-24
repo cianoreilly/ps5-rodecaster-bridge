@@ -12,7 +12,9 @@ This is based on the approach described by **u/pnkx** in this post on r/rode:
 
 [Fixed the RØDECaster Duo / Pro II → PS5 USB audio problem with a Raspberry Pi 4](https://www.reddit.com/r/rode/comments/1wjj9de/fixed_the_r%C3%B8decaster_duo_pro_ii_ps5_usb_audio/)
 
-That post is what sent me down the right path, particularly using the Pi as a UAC1 gadget and `alsaloop --sync=samplerate` to deal with the clock difference. This repo packages the setup I ended up with and adds the systemd services, bidirectional audio and the latency values I tested on my Pi.
+That post is what sent me down the right path, particularly using the Pi as a UAC1 gadget and `alsaloop --sync=samplerate` to deal with the clock difference. It also describes systemd services and a reverse audio loop for microphone support.
+
+This repo packages my implementation of that approach, with separate services for each audio direction, install/uninstall scripts, troubleshooting notes, and the latency values I tested on my Pi.
 
 ## Setup
 
