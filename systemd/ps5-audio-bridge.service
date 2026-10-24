@@ -1,0 +1,14 @@
+[Unit]
+Description=PS5 to RODECaster Duo Audio Bridge
+Requires=ps5-audio-gadget.service
+After=ps5-audio-gadget.service
+
+[Service]
+Type=simple
+Environment=LATENCY_US=30000
+ExecStart=/usr/local/sbin/ps5-audio-bridge.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=PS5 USB Audio Gadget
+Requires=sys-kernel-config.mount
+After=sys-kernel-config.mount systemd-modules-load.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/ps5-audio-gadget.sh
+ExecStop=/usr/local/sbin/ps5-audio-gadget.sh stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
